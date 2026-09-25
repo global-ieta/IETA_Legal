@@ -1,0 +1,15 @@
+.git
+.qodo
+.codex
+.venv
+venv
+__pycache__
+*.pyc
+*.pyo
+*.sqlite3
+.env
+media
+staticfiles
+.pytest_cache
+.ruff_cache
+docs
