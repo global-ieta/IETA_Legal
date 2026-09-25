@@ -1,0 +1,37 @@
+name: IETA Legal CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  django:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.13"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: pip
+      - name: Install development dependencies
+        run: python -m pip install -r requirements/dev.txt
+      - name: Django system checks
+        run: python manage.py check
+      - name: Production settings smoke check
+        env:
+          DJANGO_SECRET_KEY: ci-only-secret-key-012345678901234567890123456789012345678901234567890123456789
+          DJANGO_ALLOWED_HOSTS: ci.example.com
+          DJANGO_CSRF_TRUSTED_ORIGINS: https://ci.example.com
+          DB_ENGINE: django.db.backends.sqlite3
+          ALLOW_PRODUCTION_SQLITE: "true"
+          ALLOW_LOCAL_PRIVATE_STORAGE: "true"
+        run: python manage.py check --deploy --settings=config.settings.production
+      - name: Check migration drift
+        run: python manage.py makemigrations --check
+      - name: Run test suite
+        run: python manage.py test --settings=config.settings.testing
+      - name: Compile Python modules
+        run: python -m compileall -q .
