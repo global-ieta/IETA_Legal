@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block title %}Integration status — IETA Legal{% endblock %}
+{% block content %}
+<section class="page-hero shell">
+  <div class="eyebrow">ADMIN PORTAL / INTEGRATION STATUS</div>
+  <h1 class="display small">Know which<br><em>boundaries are ready.</em></h1>
+  <p class="hero-copy">This view reports local configuration only. It never displays secrets or makes external requests.</p>
+</section>
+<section class="section shell">
+  <div class="list-panel">
+    {% for name, item in integration_report.items %}
+    <div class="list-row">
+      <div>
+        <strong>{{ name|title }}</strong>
+        <p class="muted">Configuration: {{ item.configuration|title }} · Implementation: {{ item.implementation|title }}</p>
+      </div>
+      <span class="status">{% if item.enabled %}Enabled{% else %}Disabled{% endif %}</span>
+    </div>
+    {% endfor %}
+  </div>
+  <div class="callout mt-8"><span class="signal-dot"></span><div><strong>Configuration is not contract readiness.</strong><p class="muted mt-2">Credentials can select an official adapter, but owner-supplied API and operational contracts must still be implemented and reviewed.</p></div></div>
+</section>
+{% endblock %}

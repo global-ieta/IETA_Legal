@@ -1,0 +1,44 @@
+{% if demo_role == 'USER' %}
+<span class="eyebrow">USER PORTAL</span>
+<h2>Welcome, {{ display_name|default:'Workspace' }}</h2>
+<nav aria-label="User workspace navigation">
+  <a class="{% if request.path == '/portal/' %}active{% endif %}" href="{% url 'portal:home' %}">Overview</a>
+  <a class="{% if '/intake/' in request.path %}active{% endif %}" href="{% url 'intake:start' %}">Start intake</a>
+  <a class="{% if '/aura/' in request.path %}active{% endif %}" href="{% url 'aura:workspace' %}">AURA</a>
+  <a class="{% if '/advocates/' in request.path %}active{% endif %}" href="{% url 'advocates:directory' %}">Advocate discovery</a>
+  <a class="{% if '/matters/' in request.path %}active{% endif %}" href="{% url 'matters:list' %}">My matters</a>
+  <a class="{% if '/documents/' in request.path %}active{% endif %}" href="{% url 'documents:library' %}">Documents</a>
+  <a class="{% if '/consultations/' in request.path %}active{% endif %}" href="{% url 'consultations:list' %}">Consultations</a>
+  <a class="{% if '/messages/' in request.path %}active{% endif %}" href="{% url 'messaging:inbox' %}">Messages</a>
+  <a class="{% if '/notifications/' in request.path %}active{% endif %}" href="{% url 'notifications:inbox' %}">Notifications{% if unread_notifications %} ({{ unread_notifications }}){% endif %}</a>
+  <a class="{% if '/privacy/' in request.path %}active{% endif %}" href="{% url 'privacy:center' %}">Privacy</a>
+  <a class="{% if '/profile/' in request.path %}active{% endif %}" href="{% url 'accounts_profile:profile' %}">Profile</a>
+  <form class="portal-signout" method="post" action="{% url 'auth_logout' %}">{% csrf_token %}<button type="submit">Sign out</button></form>
+</nav>
+{% elif demo_role == 'ADVOCATE' %}
+<span class="eyebrow">ADVOCATE WORKSPACE</span>
+<h2>{{ profile.display_name|default:display_name|default:'Workspace' }}</h2>
+<p class="muted">Professional operations, independent practice.</p>
+<nav aria-label="Advocate workspace navigation">
+  <a class="{% if request.path == '/portal/' %}active{% endif %}" href="{% url 'portal:home' %}">Workspace</a>
+  <a class="{% if '/matters/' in request.path %}active{% endif %}" href="{% url 'matters:list' %}">Authorised matters</a>
+  <a class="{% if '/documents/' in request.path %}active{% endif %}" href="{% url 'documents:library' %}">Matter documents</a>
+  <a class="{% if '/consultations/' in request.path %}active{% endif %}" href="{% url 'consultations:list' %}">Consultations</a>
+  <a class="{% if '/messages/' in request.path %}active{% endif %}" href="{% url 'messaging:inbox' %}">Messages</a>
+  <a class="{% if '/notifications/' in request.path %}active{% endif %}" href="{% url 'notifications:inbox' %}">Notifications{% if unread_notifications %} ({{ unread_notifications }}){% endif %}</a>
+  <a class="{% if '/profile/' in request.path %}active{% endif %}" href="{% url 'accounts_profile:profile' %}">Profile settings</a>
+  <form class="portal-signout" method="post" action="{% url 'auth_logout' %}">{% csrf_token %}<button type="submit">Sign out</button></form>
+</nav>
+{% elif demo_role == 'ADMIN' %}
+<span class="eyebrow">ADMIN PORTAL</span>
+<h2>Operations room</h2>
+<p class="muted">Private operational workspace.</p>
+<nav aria-label="Admin workspace navigation">
+  <a class="{% if request.path == '/portal/' %}active{% endif %}" href="{% url 'portal:home' %}">Overview</a>
+  <a class="{% if '/admin-portal/documents' in request.path %}active{% endif %}" href="{% url 'admin_portal:documents' %}">Document review</a>
+  <a class="{% if '/admin-portal/audit' in request.path %}active{% endif %}" href="{% url 'admin_portal:audit_log' %}">Audit log</a>
+  <a class="{% if '/admin-portal/integrations' in request.path %}active{% endif %}" href="{% url 'admin_portal:integration_status' %}">Integration status</a>
+  <a class="{% if '/admin-portal/privacy' in request.path %}active{% endif %}" href="{% url 'admin_portal:privacy_requests' %}">Privacy queue</a>
+  <form class="portal-signout" method="post" action="{% url 'auth_logout' %}">{% csrf_token %}<button type="submit">Sign out</button></form>
+</nav>
+{% endif %}

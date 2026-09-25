@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Sign in | IETA Legal{% endblock %}
+{% block extra_head %}<link rel="stylesheet" href="{% static 'css/auth.css' %}"><link rel="stylesheet" href="{% static 'css/auth-split.css' %}">{% endblock %}
+{% block content %}
+{% url 'auth_register' as user_register_url %}
+{% url 'auth_register_advocate' as advocate_register_url %}
+<section class="auth-shell auth-split" aria-label="Choose your workspace">
+  <div class="auth-panel auth-panel-user">
+    {% include 'accounts/login_panel.html' with form=user_form role='USER' eyebrow='USER WORKSPACE' heading='Sign in as a' heading_emphasis='user.' intro='Continue to your private legal information workspace.' help_text='Need a user account?' register_url=user_register_url register_text='Create a user account' %}
+  </div>
+  <div class="auth-panel auth-panel-advocate">
+    {% include 'accounts/login_panel.html' with form=advocate_form role='ADVOCATE' eyebrow='ADVOCATE WORKSPACE' heading='Sign in as an' heading_emphasis='advocate.' intro='Continue to your independent professional workspace.' help_text='Ready to join as an advocate?' register_url=advocate_register_url register_text='Register as an advocate' %}
+  </div>
+</section>
+{% endblock %}
+{% block scripts %}<script type="module" src="{% static 'js/accounts/auth.js' %}"></script>{% endblock %}

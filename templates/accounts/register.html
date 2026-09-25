@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Create your account | IETA Legal{% endblock %}
+{% block extra_head %}<link rel="stylesheet" href="{% static 'css/auth.css' %}">{% endblock %}
+{% block content %}
+<section class="auth-shell"><div class="auth-panel"><div class="eyebrow">ACCOUNT REGISTRATION</div><h1>Start with<br><em>the facts.</em></h1><p class="auth-intro">Create a secure account to organise your information and manage consultations.</p><form method="post" class="auth-form" novalidate data-auth-form>{% csrf_token %}{% for field in form.visible_fields %}<div class="auth-field"><label for="{{ field.id_for_label }}">{{ field.label }}</label>{% if 'password' in field.name %}<div class="auth-password">{{ field }}<button type="button" class="password-toggle" data-password-toggle>Show</button></div>{% else %}{{ field }}{% endif %}{% if field.help_text %}<div class="auth-help">{{ field.help_text }}</div>{% endif %}{% if field.errors %}<div class="auth-error">{{ field.errors|striptags }}</div>{% endif %}</div>{% endfor %}<button class="button button-gold" type="submit">Create account</button></form><div class="auth-links"><span class="auth-help">Already have an account?</span><a href="{% url 'auth_login' %}">Sign in ↗</a></div></div><aside class="auth-aside"><div class="eyebrow">A CLEAR START</div><h2>A focused place for what happened.</h2><p>Build your private context first. Decide what to share and when.</p><div class="auth-progress"><span class="active"></span><span></span><span></span></div><p class="auth-help">Account · Information · Conversation</p></aside></section>
+{% endblock %}
+{% block scripts %}<script type="module" src="{% static 'js/accounts/auth.js' %}"></script>{% endblock %}

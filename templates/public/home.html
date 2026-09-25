@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}IETA Legal — Another connected world inside IETA{% endblock %}
+{% block extra_head %}<link rel="stylesheet" href="{% static 'css/landing.css' %}">{% endblock %}
+{% block content %}
+<section class="hero shell hero-layout">
+  <div class="hero-copy-column">
+    <div class="eyebrow reveal">ANOTHER CONNECTED WORLD INSIDE IETA</div>
+    <h1 class="display reveal">Understand the situation.<br><em>Keep control</em> of what comes next.</h1>
+    <p class="hero-copy reveal">IETA Legal helps you organise factual information, use AURA for guided information gathering, and choose how you connect with an independent advocate.</p>
+    <div class="actions reveal"><a class="button button-gold" href="{% url 'auth_login' %}">Sign in <span>↗</span></a><a class="button button-outline" href="{% url 'auth_register' %}">Create an account</a><a class="text-link" href="{% url 'public:page' 'how-it-works' %}">See how it works</a></div>
+  </div>
+  <figure class="hero-visual" data-hero-visual>
+    <div class="hero-visual-frame"><img src="{% static 'img/ieta-legal-hero.svg' %}" alt="Abstract IETA Legal visual showing organised facts moving toward a professional conversation."><span class="hero-visual-label">FACTS / CONTEXT / CHOICE</span><span class="hero-visual-meta"><img src="{% static 'img/ieta-legal-mark.svg' %}" alt="">Connected by design</span></div>
+  </figure>
+</section>
+<section class="section shell" data-scroll-reveal><div class="section-label">01 / THE PLATFORM</div><div class="split"><h2 class="section-heading">A calmer way to prepare for a professional conversation.</h2><div><p class="body-large">Legal situations can be difficult to describe. IETA Legal gives you a structured place to record what happened, review your own information, and decide whether to approach an independently verified advocate.</p><p class="muted mt-5">The platform supports your preparation. It does not provide legal advice, represent you, select an advocate for you, or guarantee an outcome.</p></div></div></section>
+<section class="section surface-band" data-scroll-reveal><div class="shell"><div class="section-label">02 / A CLEARER PATH</div><div class="feature-grid"><article class="feature-card"><span class="feature-no">01</span><span class="feature-icon"><img src="{% static 'img/ieta-legal-mark.svg' %}" alt=""></span><h3>Organise the facts</h3><p>Build a factual intake with dates, locations, people, documents, and your own questions.</p></article><article class="feature-card"><span class="feature-no">02</span><span class="feature-icon"><img src="{% static 'img/ieta-legal-mark.svg' %}" alt=""></span><h3>Use AURA carefully</h3><p>AURA can ask concise factual questions and summarise what you provide. It is not a lawyer.</p></article><article class="feature-card"><span class="feature-no">03</span><span class="feature-icon"><img src="{% static 'img/ieta-legal-mark.svg' %}" alt=""></span><h3>Choose your advocate</h3><p>Explore transparent profile information and retain control over who you contact.</p></article></div></div></section>
+<section class="section shell" data-scroll-reveal><div class="section-label">03 / THE BOUNDARY</div><div class="callout"><span class="signal-dot"></span><div><h2>AURA gathers information. Advocates provide professional advice.</h2><p class="muted mt-3 max-w-2xl">Keeping those roles separate is intentional. AURA does not interpret law, recommend remedies, rank advocates, predict outcomes, or calculate deadlines.</p></div></div></section>
+<section class="section shell cta-band" data-scroll-reveal><h2 class="section-heading">A connected start,<br><em>on your terms.</em></h2><a class="button button-outline" href="{% url 'public:page' 'about' %}">Learn about IETA Legal ↗</a></section>
+{% endblock %}

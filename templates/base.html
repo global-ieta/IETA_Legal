@@ -1,0 +1,33 @@
+{% load static %}
+<!doctype html>
+<html lang="en" class="bg-ink">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}IETA Legal — Another connected world inside IETA{% endblock %}</title>
+  <meta name="description" content="{{ meta_description|default:'IETA Legal helps people organise factual information and connect with independently verified advocates.' }}">
+  <meta name="robots" content="{{ robots_directive|default:'index, follow' }}"><link rel="canonical" href="{{ canonical_url }}">
+  <meta property="og:title" content="IETA Legal"><meta property="og:description" content="Understand your situation. Organise the facts. Choose your next conversation.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>tailwind.config={theme:{extend:{colors:{ink:'#0a0a09',panel:'#121210',line:'#2a2924',gold:'#d4a83f',signal:'#b9f36b',paper:'#f2efe7',muted:'#a9a69d'}}}};</script>
+  <link rel="stylesheet" href="{% static 'css/tokens.css' %}">
+  <link rel="stylesheet" href="{% static 'css/portal.css' %}">
+  {% block extra_head %}{% endblock %}
+</head>
+<body class="min-h-screen bg-ink text-paper antialiased">
+  <div id="splash" class="splash" aria-label="IETA Legal" role="status"><span>IETA</span><strong>LEGAL</strong></div>
+  <header class="site-header">
+    <a href="{% url 'public:home' %}" class="wordmark" aria-label="IETA Legal home"><span>IETA</span> LEGAL</a>
+    <button class="mobile-toggle" data-mobile-toggle aria-expanded="false" aria-controls="main-nav">Menu</button>
+    <nav id="main-nav" class="main-nav" data-mobile-nav>
+      <a href="{% url 'public:page' 'how-it-works' %}">How it works</a><a href="{% url 'public:page' 'aura' %}">AURA</a><a href="{% url 'advocates:directory' %}">Advocates</a><a href="{% url 'public:page' 'privacy' %}">Privacy</a>
+      {% if request.user.is_authenticated %}<a class="nav-pill" href="{% url 'portal:home' %}">Workspace</a><form class="nav-signout" method="post" action="{% url 'auth_logout' %}">{% csrf_token %}<button type="submit">Sign out</button></form>{% else %}<a href="{% url 'auth_login' %}">Sign in</a><a class="nav-pill" href="{% url 'auth_register' %}">Get started</a>{% endif %}
+    </nav>
+  </header>
+  {% if messages %}<div class="toast-stack" aria-live="polite">{% for message in messages %}<div class="toast toast-{{ message.tags }}">{{ message }}</div>{% endfor %}</div>{% endif %}
+  {% if demo_role %}<div class="portal-shell"><aside class="portal-nav">{% include 'portal/sidebar.html' %}</aside><section class="portal-content"><main>{% else %}<main>{% endif %}{% block content %}{% endblock %}{% if demo_role %}</main></section></div>{% else %}</main>{% endif %}
+  <footer class="site-footer"><div><span class="wordmark"><span>IETA</span> LEGAL</span><p class="muted mt-3 max-w-sm">A connected information and advocate-communication platform. Not a law firm. Not legal advice.</p></div><div class="footer-links"><a href="{% url 'public:page' 'legal-disclaimer' %}">Disclaimer</a><a href="{% url 'public:page' 'terms' %}">Terms</a><a href="{% url 'public:page' 'contact' %}">Contact</a></div></footer>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script type="module" src="{% static 'js/core/navigation.js' %}"></script>
+  <script type="module" src="{% static 'js/animations/core.js' %}"></script>
+  {% block scripts %}{% endblock %}
+</body></html>
