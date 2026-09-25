@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title desc">
+  <title id="title">IETA Legal mark</title>
+  <desc id="desc">A gold geometric mark representing connected information.</desc>
+  <rect x="1" y="1" width="62" height="62" fill="#121210" stroke="#d4a83f"/>
+  <path d="M17 18h30M17 28h20M17 38h30M17 48h20" stroke="#ecd38a" stroke-width="2"/>
+  <circle cx="44" cy="28" r="5" fill="#b9f36b"/><circle cx="44" cy="48" r="5" fill="#d4a83f"/>
+</svg>

@@ -1,0 +1,11 @@
+.auth-split{grid-template-columns:repeat(2,minmax(0,1fr));gap:1px;align-items:stretch;width:min(1180px,calc(100% - 48px));background:var(--line)}
+.auth-split .auth-panel{min-height:620px;border:0;box-shadow:none;padding:clamp(32px,5vw,72px)}
+.auth-panel-user{background:var(--panel)}
+.auth-panel-advocate{background:var(--panel-2)}
+.auth-split .auth-form,.auth-split .auth-links{max-width:440px}
+.auth-split .auth-panel h1{font-size:clamp(38px,4.5vw,62px)}
+@media(max-width:760px){
+  .auth-split{display:grid;width:min(100% - 32px,680px)}
+  .auth-split .auth-panel{min-height:0;padding:32px 24px}
+  .auth-split .auth-panel+.auth-panel{border-top:1px solid var(--line)}
+}

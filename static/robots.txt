@@ -1,0 +1,7 @@
+User-agent: *
+Disallow: /portal/
+Disallow: /development/
+Disallow: /aura/
+Disallow: /intake/
+Disallow: /messages/
+Disallow: /calls/

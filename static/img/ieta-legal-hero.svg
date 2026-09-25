@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 680" role="img" aria-labelledby="title desc">
+  <title id="title">IETA Legal connected information visual</title>
+  <desc id="desc">An abstract legal workspace showing organised facts moving toward a professional conversation.</desc>
+  <defs>
+    <linearGradient id="wash" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#191815"/><stop offset="1" stop-color="#0a0a09"/></linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#ecd38a"/><stop offset="1" stop-color="#d4a83f"/></linearGradient>
+    <filter id="glow"><feGaussianBlur stdDeviation="12" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <style>
+      .hero-orbit{transform-box:fill-box;transform-origin:center;animation:orbit 24s linear infinite}
+      .hero-ring{transform-box:fill-box;transform-origin:center;animation:ring 12s ease-in-out infinite alternate}
+      .hero-dot{animation:pulse 3s ease-in-out infinite}
+      @keyframes orbit{to{transform:rotate(360deg)}}
+      @keyframes ring{to{transform:scale(1.08) rotate(-18deg)}}
+      @keyframes pulse{0%,100%{opacity:.55}50%{opacity:1}}
+      @media (prefers-reduced-motion: reduce){.hero-orbit,.hero-ring,.hero-dot{animation:none}}
+    </style>
+  </defs>
+  <rect width="760" height="680" rx="4" fill="url(#wash)"/>
+  <path d="M70 548C184 430 236 490 328 372S500 180 688 126" fill="none" stroke="#2a2924" stroke-width="1"/>
+  <path d="M74 566C206 462 267 505 357 391S522 211 692 153" fill="none" stroke="#d4a83f" stroke-opacity=".22" stroke-width="1" stroke-dasharray="4 10"/>
+  <g class="hero-orbit" fill="none" stroke="#d4a83f" stroke-opacity=".35"><ellipse cx="386" cy="340" rx="258" ry="128" transform="rotate(-24 386 340)"/><ellipse cx="386" cy="340" rx="190" ry="92" transform="rotate(34 386 340)"/></g>
+  <g class="hero-ring" fill="none" stroke="url(#gold)" stroke-width="1.5" opacity=".8"><circle cx="386" cy="340" r="106"/><circle cx="386" cy="340" r="126" stroke-dasharray="2 12"/></g>
+  <g class="hero-dot" filter="url(#glow)"><circle cx="552" cy="193" r="5" fill="#b9f36b"/><circle cx="218" cy="470" r="4" fill="#d4a83f"/></g>
+  <g transform="translate(112 134) rotate(-7 130 166)"><rect width="260" height="332" rx="2" fill="#121210" stroke="#ecd38a" stroke-opacity=".8"/><path d="M34 52h128M34 76h174M34 100h154M34 157h192M34 181h156M34 205h177" stroke="#a9a69d" stroke-opacity=".55"/><path d="M34 256h78" stroke="#d4a83f" stroke-width="3"/><circle cx="202" cy="270" r="25" fill="none" stroke="#b9f36b" stroke-opacity=".75"/><path d="m190 270 8 8 16-20" fill="none" stroke="#b9f36b" stroke-width="2"/><text x="34" y="34" fill="#d4a83f" font-family="Arial, sans-serif" font-size="10" letter-spacing="3">FACTUAL RECORD</text></g>
+  <g transform="translate(438 364) rotate(8 108 88)"><rect width="216" height="176" rx="2" fill="#191815" stroke="#2a2924"/><circle cx="42" cy="48" r="17" fill="none" stroke="#d4a83f"/><path d="M76 42h102M76 59h76M28 102h154M28 122h126M28 142h90" stroke="#a9a69d" stroke-opacity=".55"/><text x="28" y="25" fill="#ecd38a" font-family="Arial, sans-serif" font-size="9" letter-spacing="2">NEXT CONVERSATION</text></g>
+  <g transform="translate(318 278)"><circle r="9" fill="#d4a83f"/><circle r="4" fill="#0a0a09"/></g>
+</svg>
