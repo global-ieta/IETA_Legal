@@ -125,6 +125,7 @@ Expected log warnings for intentional 404, 429, and 503 test cases do not indica
 
 - [README](README.md)
 - [Project report](Project_Report.md)
+- [Production connections](PRODUCTION_CONNECTIONS.md)
 - [Architecture](docs/ARCHITECTURE.md)
 - [Integration boundaries](docs/INTEGRATIONS.md)
 - [Security baseline](docs/SECURITY.md)

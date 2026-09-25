@@ -207,6 +207,7 @@ Expected test logs for intentional 404, 429, and 503 cases do not indicate failu
 
 - [README](README.md)
 - [Project status](Project_Status.md)
+- [Production connections](PRODUCTION_CONNECTIONS.md)
 - [Architecture](docs/ARCHITECTURE.md)
 - [Integration boundaries](docs/INTEGRATIONS.md)
 - [Security baseline](docs/SECURITY.md)

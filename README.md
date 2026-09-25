@@ -10,6 +10,7 @@ The project is a validated pre-production foundation. It must not be described a
 
 See [Project_Status.md](Project_Status.md) for the detailed current-state report.
 See [Project_Report.md](Project_Report.md) for the full project progression and Chainlit/AURA assessment.
+See [PRODUCTION_CONNECTIONS.md](PRODUCTION_CONNECTIONS.md) for the complete production connection and release runbook.
 
 ## Run locally
 
@@ -104,6 +105,7 @@ Follow [docs/DEPLOYMENT.md](docs/DEPLOYMENT.md) before deployment. Production se
 
 - [Project status](Project_Status.md)
 - [Project report](Project_Report.md)
+- [Production connections](PRODUCTION_CONNECTIONS.md)
 - [Architecture](docs/ARCHITECTURE.md)
 - [Integration boundaries](docs/INTEGRATIONS.md)
 - [Security baseline](docs/SECURITY.md)
