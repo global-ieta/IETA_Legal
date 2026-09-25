@@ -1,0 +1,6 @@
+from abc import ABC, abstractmethod
+class AIProvider(ABC):
+    @abstractmethod
+    def intake_conversation(self, message: str) -> str: ...
+    @abstractmethod
+    def summarize_facts(self, facts: str) -> str: ...
